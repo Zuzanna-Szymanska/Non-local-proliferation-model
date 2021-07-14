@@ -12,7 +12,7 @@ from copy import deepcopy
 from tqdm import tqdm
 
 
-### Masa poczatkowa kolonii komorkowej.
+### The function returns the vector C with the initial mass of the colony at a given radius.
 def init_function(rmin,rmax,R,sigma,dr):
     C = np.arange(rmin,rmax,dr)
     sigma_new  = sigma*1.07
@@ -25,28 +25,28 @@ def init_function(rmin,rmax,R,sigma,dr):
             C[k] = 0
     return C
 
-### Funkcja zwraca wektor gęstości (masa podzielona przez objetość).
+### The function returns the density vector (mass divided by volume).
 def get_density(rmin,rmax,R,C,dr):
     D = np.arange(rmin,rmax,dr)
     for k in range(len(R)):
         D[k] = C[k]/(4*np.pi*R[k]*R[k]*dr)
     return D
 
-### Funkcja zwraca zwagowane masy (masa podzielona przez promień i przez calkowita mase) potrzebne do liczenia metryki rho.
+### The function returns the weighted masses (mass divided by the radius and by the total mass) needed to calculate the auxiliary metric rho.
 def get_weighted_mass_rho(rmin,rmax,R,C,dr):
     D = np.arange(rmin,rmax,dr)
     for k in range(len(R)-1):
         D[k] = C[k]/R[k]
     return D/np.sum(D)
 
-### Funkcja zwraca zwagowane masy (masa podzielona przez promień) potrzebne do liczenia metryki flat i metryki rho
+### The function returns the weighted masses (mass divided by the radius) needed to calculate the auxiliary metric rho.
 def get_weighted_mass(rmin,rmax,R,C,dr):
     D = np.arange(rmin,rmax,dr)
     for k in range(len(R)-1):
         D[k] = C[k]/R[k]
     return D
 
-### Liczenie macierzy pomocniczej do splotu (wzor A.18)
+### The function returns an auxiliary matrix for the calculation of the convolution.
 def funkcja_L(R,sigma2):
     norm = 3/(16*np.pi*(sigma2**3))
     sigma2pow = sigma2**2
@@ -101,11 +101,11 @@ def funkcja_L(R,sigma2):
     L11 = L11.multiply(normRij1)
     return L11
 
-### Liczenie splotu
+### The function returns the convolution of the kernel and the vector of masses.
 def splot(L,C):
     return L.dot(C)
 
-### Runge-Kutta IV rzedu
+### 4th order Runge-Kutta IV scheme.
 def RK(C,R,L,delta_t,dr,sigma2,mu):
     schemat = 2
     kc = splot(L,C)
@@ -122,7 +122,7 @@ def RK(C,R,L,delta_t,dr,sigma2,mu):
     k_4 = delta_t * mu*kc_3*(4*np.pi*dr*R2-C_3)
     return C + (k_1 + 2*k_2 + 2*k_3 + k_4)/6
 
-### Euler
+### Euler scheme.
 def Euler(C,R,L,delta_t,dr,sigma2,mu):
     schemat = 1
     kc = splot(L,C)
@@ -132,7 +132,7 @@ def Euler(C,R,L,delta_t,dr,sigma2,mu):
 
 from scipy import sparse
 
-### Funkcja zwraca wektory gestosci i masy kolonii komorkowej w kolejnych krokach czasowych przy zadanych parametrach mu i sigma2
+### The function calculates the cell colony mass vector in successive time steps with the given mu and sigma2 parameters.
 def simulate(rmin,rmax,tmax,dr,dt,sigma_init,sigma2,mu,schemat):
     czas= int(np.round(tmax/dt))+1
     R = np.arange(rmin,rmax,dr)
@@ -150,19 +150,17 @@ def simulate(rmin,rmax,tmax,dr,dt,sigma_init,sigma2,mu,schemat):
             C = Euler(C,R,L,dt,dr,sigma2,mu)
     return C
 
-
 ######################################################################################################################
-### Liczenie odległości między miarami.
-### Składa się z dwóch etapów: funkcji diff - liczenie różnicy dwóch miar i liczenia właściwej metryki - flat lub rho.
-### Danymi dla funkcji liczących odpowiednio metryki flat i rho są wektory wynikowe funkcji diff.
+### Counting distances between measures.
+### It consists of two stages: i) diff function - calculates the difference of two measures, and ii) function rho calculates the proper auxiliary metric rho and flat metric.
+### The result vectors of the diff function are the arguments for the functions calculating the rho and flat metrics.
 ######################################################################################################################
 
-### Funkcja zwraca rząd zbiezności. Uwaga metryka_new to odległośc dla 2*dr=dt
+### The function returns the order of convergence. Note metryka_new is the distance for 2 * dr = dt.
 def Error(metryka_new,metryka_old):
     return np.log(metryka_new/metryka_old)/np.log(2)
 
-
-### Funkcja liczy odległośćmiędzy dwoma miarami.
+### The function returns the distance between two measures.
 def diff(R1,R2,C1,C2):
     i = 0
     j = 0
@@ -210,7 +208,7 @@ def diff(R1,R2,C1,C2):
                                 koniec_2 = 1
     return supp,diff
 
-### Liczenie odległości Wasserstaina
+### The function returns the Wasserstain distance.
 def W1(R,C):
     partial_sum = 0
     distance = 0
@@ -219,12 +217,12 @@ def W1(R,C):
         distance = distance + np.abs(partial_sum)*(R[i+1]-R[i])
     return distance
 
-### Liczenie metryki rho
+### The function returns the auxiliary metric rho.
 def rho(R_diff,M_diff,Masa1,Masa2):
     wasser = W1(R_diff,M_diff)
     return min(Masa1,Masa2)*wasser+np.abs(Masa1-Masa2)
 
-### Liczenie metryki flat
+### The function returns the flat metric.
 def flat(R,C):
     left_value = -C[0]
     V=set([(-1,C[0]),(1,-inf)])
@@ -259,10 +257,10 @@ def flat(R,C):
     return left_value
 
 ######################################################
-################# Program glowny #####################
+################# Main program #####################
 ######################################################
 
-# Parametry
+# Paramers
 Len = 2
 tmax = 10
 mu= 0.5
@@ -270,19 +268,20 @@ sigma2= 0.04
 sigma_init= 0.74
 #schemat = 1 <-- Euler, schemat == 2 <-- RK
 schemat = 1
-dr_ref = 8*0.000125
+dr_ref = 8*0.000125 # The smallest discretization.
 dt_ref = dr_ref
 rmin_ref = dr_ref
 rmax_ref = rmin_ref + Len
 dr = dr_ref
 
+# RK scheme or Euler scheme.
 if (schemat == 1):
     print("\n Schemat = Euler dr_ref = ",dr_ref," tmax = ",tmax)
 else:
     if (schemat == 2):
         print("\n Schemat = RK dr_ref = ",dr_ref," tmax = ",tmax)
 
-#Liczę rozwiązania dla najdrobniejszej rozważanej dyskretyzacji <=== rozwiazanie referencyjne
+# Calculation of the solutions for the smallest discretization considered <=== reference solution.
 R_ref = np.arange(rmin_ref,rmax_ref,dr_ref)
 C_ref = simulate(rmin_ref,rmax_ref,tmax,dr_ref,dt_ref,sigma_init,sigma2,mu,schemat)
 #C_ref = init_function(rmin_ref,rmax_ref,R_ref,sigma_init,dr_ref)
@@ -295,7 +294,7 @@ flat_old = 0
 rho_old = 0
 dr_pop=dr_ref
 
-#W pętli zwiększam dyskretyzację 2 razy, liczę nowe rozwiązania i liczę odległość od poprzedniego
+# In the loop, Increase of the discretization 2 times, calculation of the new solution and calculation of the distance to the previous one.
 while (4*dr<sigma2):
     
     dr = dr_pop*2
@@ -311,12 +310,14 @@ while (4*dr<sigma2):
     
     print("\n dr=",dr)
     
+    # Calculation of the flat metric.
     R_new_diff,D_new_diff = diff(R_new,R_ref,D_new,D_ref)
     flat_new = flat(R_new_diff,D_new_diff)
     print("Flat = ",flat_new)
     if (flat_old!=0):
         print("Error flat =",Error(flat_new,flat_old))
-    
+ 
+    # Calculation of the rho metric.
     R_new_diff,M_new_diff = diff(R_new,R_ref,M_new,M_ref)
     rho_new = rho(R_new_diff,M_new_diff,np.sum(D_ref),np.sum(D_new))
     print("Rho  = ",rho_new)
