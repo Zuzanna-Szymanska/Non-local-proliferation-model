@@ -265,7 +265,7 @@ def Euler(C,R,L,delta_t,dr,sigma2,mu):
     k_1 = delta_t * mu*kc*(4*np.pi*dr*R2-C)
     return C + k_1
 
-### The function calculates the cell colony mass vector in successive time steps with the given the parameters.
+### The function calculates the cell colony diameter vector in successive time steps with given the parameters.
 def simulate(rmin,rmax,tmax,dr,dt,sigma_i,sigma_k,mu):
     czas= int(np.round(tmax/dt))+1
     colony_mass = np.zeros(czas)
