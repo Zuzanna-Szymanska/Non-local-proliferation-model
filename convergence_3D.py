@@ -1,9 +1,6 @@
 ### Convergence of EBT method for nonlocal model of cell proliferation with discontinuous interaction kernel I
 ### P.Gwiazda, B.Miasojedow, J.Skrzeczkowski, Z. Szymanska
 
-### Convergence of EBT method for nonlocal model of cell proliferation with discontinuous interaction kernel I
-### P.Gwiazda, B.Miasojedow, J.Skrzeczkowski, Z. Szymanska
-
 import numpy as np
 from scipy.integrate import quad
 from math import isclose
