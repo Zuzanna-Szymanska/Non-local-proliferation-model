@@ -1,7 +1,8 @@
 ##################################################################################################
 ##################################################################################################
 ###
-### Figure generating file for the random walk Metropolis–Hastings algorithm for a non-local proliferation function
+### Auxiliary file to generate figures for the results of the random walk Metropolis–Hastings algorithm 
+### the Bayesian inference of a non-local proliferation function.
 ###
 ##################################################################################################
 ##################################################################################################
@@ -26,10 +27,10 @@ library(reshape2)
 # log_mu_part1.csv > log_mu.csv
 # log_mu_part2.csv >> log_mu.csv
 # Etc.
-log_mu <- read.table("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/log_mu.csv", quote="\"", comment.char="")
-log_sigma_k <- read.table("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/log_sigma_k.csv", quote="\"", comment.char="")
-log_sigma_o <- read.table("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/log_sigma_o.csv", quote="\"", comment.char="")
-log_sigma_i <- read.table("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/log_sigma_i.csv", quote="\"", comment.char="")
+log_mu <- read.table("~/Destination_path/log_mu.csv", quote="\"", comment.char="")
+log_sigma_k <- read.table("~/Destination_path/log_sigma_k.csv", quote="\"", comment.char="")
+log_sigma_o <- read.table("~/Destination_path/log_sigma_o.csv", quote="\"", comment.char="")
+log_sigma_i <- read.table("~/Destination_path/log_sigma_i.csv", quote="\"", comment.char="")
 dane = data.frame(lambda = exp(unlist(log_mu)),sigma_k =exp(unlist(log_sigma_k)),sigma_o=exp(unlist(log_sigma_o)),sigma_i=exp(unlist(log_sigma_i)))
 
 # Plot of the 1D densities.
@@ -38,7 +39,7 @@ meltdane = melt(dane,id="iteracja")
 meltdane$variable = factor(meltdane$variable,levels = c("lambda","sigma_k","sigma_o","sigma_i"), labels = c(expression(alpha),expression(sigma[k]),expression(sigma[o]),expression(sigma[i])))
 ggplot(meltdane,aes(x=value))+stat_density(fill="steelblue")+facet_wrap(~variable,scales = "free", labeller=label_parsed)+theme_minimal()+xlab('')+ylab('')+
   theme(strip.text.x = element_text(size = 12))
-ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/dens1db.pdf",width=8.3,height=6.25,units = "in")
+ggsave("~/Destination_path/dens1db.pdf",width=8.3,height=6.25,units = "in")
 
 # Plot of the traceplots.
 meltdane = melt(dane,id="iteracja")
@@ -46,7 +47,7 @@ meltdane$variable = factor(meltdane$variable,levels = c("lambda","sigma_k","sigm
   labels = c(expression(alpha),expression(sigma[k]),expression(sigma[o]),expression(sigma[i])))
 ggplot(meltdane,aes(x=iteracja,y=log(value)))+geom_line()+facet_wrap(~variable,scales="free",labeller = label_parsed,ncol=2)+theme_minimal()+xlab('ITERATION NUMBER')+ylab('')+
   theme(strip.text.x = element_text(size = 12))
-ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/traceplotb.pdf",width=8.3,height=6.25,units = "in")
+ggsave("~/Destination_path/traceplotb.pdf",width=8.3,height=6.25,units = "in")
 
 # Autocorrelation plot.
 test = acf(log(dane[,-5]),plot = F)
@@ -56,22 +57,22 @@ meltdane$variable = factor(meltdane$Var2,levels =1:4,
   labels = c(expression(log(alpha)),expression(log(sigma[k])),expression(log(sigma[o])),expression(log(sigma[i]))))
 ggplot(meltdane,aes(x=Var1,y=value))+geom_bar(stat="identity")+facet_wrap(~variable, labeller=label_parsed,ncol=2)+theme_minimal()+xlab('')+ylab('')+
   theme(strip.text.x = element_text(size = 12))+xlab("LAG")+ylab("ACF")
-ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/acfb.pdf",width=8.3,height=6.25,units = "in")
+ggsave("~/Destination_path/acfb.pdf",width=8.3,height=6.25,units = "in")
 
 # Drawing the trajectories. Files "mean_nr.csv", "lower_nr.csv", and "upper_nr.csv" are output files of postprocessing.py.
 # The simulation presented in the paper were run in 4 tranches of 100 000 iterations each. 
-mean0 <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/mean0.csv", header=FALSE)
-mean1 <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/mean1.csv", header=FALSE)
-mean2 <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/mean2.csv", header=FALSE)
-mean3 <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/mean3.csv", header=FALSE)
-low0 <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/lower0.csv", header=FALSE)
-low1 <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/lower1.csv", header=FALSE)
-low2 <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/lower2.csv", header=FALSE)
-low3 <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/lower3.csv", header=FALSE)
-up0  <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/upper0.csv", header=FALSE)
-up1  <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/upper1.csv", header=FALSE)
-up2  <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/upper2.csv", header=FALSE)
-up3  <-read.csv("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/upper3.csv", header=FALSE)
+mean0 <-read.csv("~/Destination_path/mean0.csv", header=FALSE)
+mean1 <-read.csv("~/Destination_path/mean1.csv", header=FALSE)
+mean2 <-read.csv("~/Destination_path/mean2.csv", header=FALSE)
+mean3 <-read.csv("~/Destination_path/mean3.csv", header=FALSE)
+low0 <-read.csv("~/Destination_path/lower0.csv", header=FALSE)
+low1 <-read.csv("~/Destination_path/lower1.csv", header=FALSE)
+low2 <-read.csv("~/Destination_path/lower2.csv", header=FALSE)
+low3 <-read.csv("~/Destination_path/lower3.csv", header=FALSE)
+up0  <-read.csv("~/Destination_path/upper0.csv", header=FALSE)
+up1  <-read.csv("~/Destination_path/upper1.csv", header=FALSE)
+up2  <-read.csv("~/Destination_path/upper2.csv", header=FALSE)
+up3  <-read.csv("~/Destination_path/upper3.csv", header=FALSE)
 mean = (mean0 + mean1 + mean2 + mean3)/4
 low = (low0 + low1 + low2 + low3)/4
 up = (up0 + up1 + up2 + up3)/4
@@ -131,19 +132,19 @@ data_simulated = data.frame(time = seq(tau,tmax,length.out = length(unlist(mean)
 ggplot(data_simulated,aes(x=time,y=means))+geom_line(col="steelblue")+geom_ribbon(aes(ymin=up,ymax=low),alpha=0.3,fill="steelblue")+
   geom_point(data=pdata,aes(x=x,y=y),col="black",size = 2.5)+
   theme_minimal()+ylab("MAXIMUM DIAMETER (mm)")+xlab("DAYS")+xlim(7,26)+ylim(0,5.0)
-ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/fiteda.pdf",width=8.3,height=6.25,units = "in")
+ggsave("~/Destination_path/fiteda.pdf",width=8.3,height=6.25,units = "in")
 
 # For data set b.
 #ggplot(data_simulated,aes(x=time,y=means))+geom_line(col="steelblue")+geom_ribbon(aes(ymin=up,ymax=low),alpha=0.3,fill="steelblue")+
 #  geom_point(data=pdata,aes(x=x,y=y),col="black",size = 2.5)+
 #  theme_minimal()+ylab("MAXIMUM DIAMETER (mm)")+xlab("DAYS")+xlim(18,170)+ylim(0,5)
-#ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/fitedb.pdf",width=8.3,height=6.25,units = "in")
+#ggsave("~/Destination_path/fitedb.pdf",width=8.3,height=6.25,units = "in")
 
 # For data set c.
 #ggplot(data_simulated,aes(x=time,y=means))+geom_line(col="steelblue")+geom_ribbon(aes(ymin=up,ymax=low),alpha=0.3,fill="steelblue")+
 #  geom_point(data=pdata,aes(x=x,y=y),col="black",size = 2.5)+
 #  theme_minimal()+ylab("MAXIMUM DIAMETER (mm)")+xlab("DAYS")+xlim(11,80)+ylim(1.0,2.7)
-#ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/c_10_kwantyl/fitedc.pdf",width=8.3,height=6.25,units = "in")
+#ggsave("~/Destination_path/fitedc.pdf",width=8.3,height=6.25,units = "in")
 
 ##################################################################################################
 ##################################################################################################
@@ -154,10 +155,10 @@ ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/fiteda.pdf",width=8.3
 # Files: "time_best_E.csv", "time_best_RK.csv", "colony_diameter_best_RK.csv", and "colony_diameter_best_RK.csv"
 # Data "*_E.csv" were obtained with Euler scheme, whereas data "*_RK.csv" were obtained for 4th order Runge-Kutta scheme. 
 
-diam_best_RK <- read.table("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/colony_diameter_best_RK.csv", quote="\"", comment.char="")
-time_best_RK <- read.table("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/time_best_RK.csv", quote="\"", comment.char="")
-diam_best_E <- read.table("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/colony_diameter_best_E.csv", quote="\"", comment.char="")
-time_best_E <- read.table("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/time_best_E.csv", quote="\"", comment.char="")
+diam_best_RK <- read.table("~/Destination_path/colony_diameter_best_RK.csv", quote="\"", comment.char="")
+time_best_RK <- read.table("~/Destination_path/time_best_RK.csv", quote="\"", comment.char="")
+diam_best_E <- read.table("~/Destination_path/colony_diameter_best_E.csv", quote="\"", comment.char="")
+time_best_E <- read.table("~/Destination_path/time_best_E.csv", quote="\"", comment.char="")
 
 time_best_RK = time_best_RK + tau
 data_to_plot <- data.frame(time_mean = seq(tau,tmax,length.out = length(unlist(mean))),diam_mean = unlist(mean),time_best_RK = unlist(time_best_RK), diam_best_RK = unlist(diam_best_RK), unlist(time_best_E), diam_best_E = unlist(diam_best_E))
@@ -169,7 +170,7 @@ ggplot(data_to_plot,aes(x=time_best_RK))+
   geom_line(aes(y=diam_mean),color = "steelblue",size=0.7)+
   geom_point(data=pdata,aes(x=x,y=y),col="black",size = 2.5)+
   theme_minimal()+ylab("MAXIMUM DIAMETER (mm)")+xlab("DAYS")+xlim(7,26)+ylim(0,5.0)
-ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/time_diam_best_b.pdf",width=8.3,height=6.25,units = "in")
+ggsave("~/Destination_path/time_diam_best_a.pdf",width=8.3,height=6.25,units = "in")
 
 # For data set b.
 #ggplot(data_to_plot,aes(x=time_best))+
@@ -177,7 +178,7 @@ ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/time_diam_best_b.pdf"
 #  #geom_line(aes(y=diam_mean),color = "steelblue",size=0.7)+
 #  geom_point(data=pdata,aes(x=x,y=y),col="black",size = 2.5)+
 #  theme_minimal()+ylab("MAXIMUM DIAMETER (mm)")+xlab("DAYS")+xlim(18,170)+ylim(0,5)
-#ggsave("~/Desktop/Dane_inverse/Wyniki_eps/b_13_eps/time_diam_best_b.pdf",width=8.3,height=6.25,units = "in")
+#ggsave("~/Destination_path/time_diam_best_b.pdf",width=8.3,height=6.25,units = "in")
 
 # For data set c.
 #ggplot(data_to_plot,aes(x=time_best_RK))+
@@ -186,4 +187,4 @@ ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/a_22_kwantyl/time_diam_best_b.pdf"
 #  geom_line(aes(y=diam_mean),color = "steelblue",size=0.7)+
 #  geom_point(data=pdata,aes(x=x,y=y),col="black",size = 2.5)+
 #  theme_minimal()+ylab("MAXIMUM DIAMETER (mm)")+xlab("DAYS")+xlim(11,80)+ylim(1.0,2.7)
-#ggsave("~/Desktop/Dane_inverse/Wyniki_kwantyl/c_10_kwantyl/time_diam_best_c.pdf",width=8.3,height=6.25,units = "in")
+#ggsave("~/Destination_path/time_diam_best_c.pdf",width=8.3,height=6.25,units = "in")
