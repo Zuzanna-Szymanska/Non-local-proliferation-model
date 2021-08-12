@@ -1,8 +1,8 @@
 ##################################################################################################
 ##################################################################################################
 ###
-### Auxiliary file to generate figures for the results of the random walk Metropolis–Hastings algorithm 
-### the Bayesian inference of a non-local proliferation function.
+### Auxiliary file to generate figures presenting the results of the random walk Metropolis–Hastings 
+### algorithm for the Bayesian inference of a non-local proliferation function.
 ###
 ##################################################################################################
 ##################################################################################################
