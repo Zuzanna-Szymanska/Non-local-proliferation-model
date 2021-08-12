@@ -286,13 +286,29 @@ def simulate(rmin,rmax,tmax,dr,dt,sigma_i,sigma_k,mu):
         time[i] = i*dt
     return colony_mass,C,colony_diameter,time
 
-### Logarithm of prior density
+### Logarithm of prior density data set a
 def logprior(log_mu,log_sigma_k,log_sigma_o,log_sigma_i):
     out = -(log_mu-np.log(1.38629/2.4))**2/2          #Prior mu
     out -= (log_sigma_k-np.log(0.06))**2/2            #Prior sigma_k
     out -= (log_sigma_o)**2/10                        #Prior sigma_o
     out -= (log_sigma_i-np.log(0.2735966))**2/2	      #Prior sigma_i
     return out
+
+### Logarytm gestosci priori data set b
+#def logprior(log_mu,log_sigma2,log_sigma_obs,log_sigma_init):
+#    out = -(log_mu-np.log(1.03972/2.4))**2/2            #Prior mu
+#    out -= (log_sigma2-np.log(0.06))**2/2               #Prior sigma_k
+#    out -= (log_sigma_obs)**2/10                        #Prior sigma_o
+#    out -= (log_sigma_init-np.log(0.4030418251))**2/2   #Prior sigma_i
+#    return out
+
+### Logarytm gestosci priori data set c
+#def logprior(log_mu,log_sigma2,log_sigma_obs,log_sigma_init):
+#    out = -(log_mu-np.log(0.92419/2.4))**2/2            #Prior mu
+#    out -= (log_sigma2-np.log(0.09))**2/2               #Prior sigma_k
+#    out -= (log_sigma_obs)**2/10                        #Prior sigma_o
+#    out -= (log_sigma_init-np.log(0.7333333333))**2/2   #Prior sigma_i
+#    return out
 
 ##################################################################################################
 ##################################################################################################
