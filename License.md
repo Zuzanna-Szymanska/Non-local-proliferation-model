@@ -1,8 +1,3 @@
----
-layout: page
-title: "Licenses"
-root: .
----
 ## Instructional Material
 
 All Software Carpentry and Data Carpentry instructional material is
