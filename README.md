@@ -18,10 +18,8 @@ File folkman_a_b_c_time.py contains auxiliary code for solving the proposed non-
 
 File figures_Inverse_Proliferation.R is an auxiliary code used to create figures in [1].
 
-
 File convergence_2D.py contains code for determining the order of convergence of the ETB-based method for a non-local model of 2D cellular colony dynamics with a discontinuous interaction kernel.
 
 File convergence_3D.py contains code for determining the order of convergence of the ETB-based method for a non-local model of 3D cellular colony dynamics with a discontinuous interaction kernel.
 
-File flatmetric.py contains procedures for computing Wasserstein and flat metric.
-
+File flatmetric.py contains procedures for computing Wasserstein and flat metrics.
