@@ -14,7 +14,7 @@
 ### Z. Szymanska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
 ### arXiv: 2106.05955
 ###
-### Convergence of EBT method for nonlocal model of cell proliferation with discontinuous interaction kernel
+### Convergence of the EBT method for nonlocal model of cell proliferation with discontinuous interaction kernel
 ### P.Gwiazda, B.Miasojedow, J.Skrzeczkowski, Z. Szymanska
 ### arXiv: 2106.05115
 ###
