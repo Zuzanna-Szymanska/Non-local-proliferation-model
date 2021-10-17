@@ -32,7 +32,7 @@
 ###
 ### Data are redrawn in the paper:
 ### Bayesian inference of a non-local proliferation model
-### Z. Szymanska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
+### Z. Szymańska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
 ### arXiv: 2106.05955
 ###
 ### Data concerns three different cell lines, i.e a) L-5178Y murine leukaemia cells, b) V-79 Chinese hamster lung, and c) B-16 mouse melanoma.
