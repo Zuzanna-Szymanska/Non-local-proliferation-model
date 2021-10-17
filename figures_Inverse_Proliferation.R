@@ -7,7 +7,7 @@
 ##################################################################################################
 ##################################################################################################
 ###
-### This file contains R code for making figures presented in the paper: 
+### This file contains R (version 3.6.2) code for making figures presented in the paper: 
 ###
 ### Bayesian inference of a non-local proliferation model
 ### Z. Szymańska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
