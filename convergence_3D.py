@@ -1,5 +1,28 @@
-### Convergence of EBT method for nonlocal model of cell proliferation with discontinuous interaction kernel I
-### P.Gwiazda, B.Miasojedow, J.Skrzeczkowski, Z. Szymanska
+##################################################################################################
+##################################################################################################
+###
+###      Order of convergence of the EBT method for a non-local 3D model of cell proliferation
+###
+##################################################################################################
+##################################################################################################
+###
+### This file contains Python3 code for computing the order of convergence of the EBT method for 
+### a non-local 3D model of cell proliferation with a discontinuous interaction kernel.
+### 
+### The code was prepared for computations in the following paper:
+###
+### Convergence of the EBT method for a non-local model of cell proliferation with discontinuous interaction kernel
+### P.Gwiazda, B.Miasojedow, J.Skrzeczkowski, Z. Szymańska
+### arXiv: 2106.05115
+###
+### The theoretical background concerning the theory of measure aspects is explained in the book (Chapter 4.2):
+### Spaces of Measures and their Applications to Structured Population Models
+### C. Duell, P. Gwiazda, A. Marciniak-Czochra, J. Skrzeczkowski
+### to be published in October 2021 by Cambridge University Press
+### https://www.cambridge.org/pl/academic/subjects/mathematics/differential-and-integral-equations-dynamical-systems-and-co/spaces-measures-and-their-applications-structured-population-models?format=HB
+###
+##################################################################################################
+##################################################################################################
 
 import numpy as np
 from scipy.integrate import quad
