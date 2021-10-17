@@ -6,7 +6,7 @@
 ##################################################################################################
 ##################################################################################################
 ###
-### This file contains Python3 code for computing Bayesian inference for a non-local proliferation model.
+### This file contains Python (version 3.7.4) code for computing Bayesian inference for a non-local proliferation model.
 ###
 ### The code was prepared for computations in the following papers:
 ###
