@@ -6,7 +6,7 @@
 ##################################################################################################
 ##################################################################################################
 ###
-### This file contains Python3 code for computing the order of convergence of the EBT method for 
+### This file contains Python (version 3.7.4) code for computing the order of convergence of the EBT method for 
 ### a non-local 2D model of cell proliferation with a discontinuous interaction kernel.
 ### 
 ### The code was prepared for computations in the following paper:
