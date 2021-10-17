@@ -1,55 +1,55 @@
-#####################################################################
-#####################################################################
-### DISTANCES FOR MEASURES ##########################################
-#####################################################################
-#####################################################################
-
-### This file contains Python3 code for computing Wasserstein and flat metric
-
+##################################################################################################
+##################################################################################################
+##################################### DISTANCES FOR MEASURES #####################################
+##################################################################################################
+##################################################################################################
+###
+### This file contains Python (version 3.7.4) code for computing Wasserstein and flat metric.
 ### The code was prepared for computations in the following papers:
-
+###
 ### Convergence of EBT method for nonlocal model of cell proliferation with discontinuous interaction kernel
 ### P.Gwiazda, B.Miasojedow, J.Skrzeczkowski, Z. Szymanska
 ### arXiv: 2106.05115
-
+###
 ### Bayesian inference of a non-local proliferation model
 ### Z. Szymanska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
 ### arXiv: 2106.05955
-
+###
 ### The theoretical background of these algorithms is explained in the book (Chapter 4.2):
-
+###
 ### Spaces of Measures and their Applications to Structured Population Models
 ### C. Duell, P. Gwiazda, A. Marciniak-Czochra, J. Skrzeczkowski
 ### to be published in October 2021 by Cambridge University Press
 ### https://www.cambridge.org/pl/academic/subjects/mathematics/differential-and-integral-equations-dynamical-systems-and-co/spaces-measures-and-their-applications-structured-population-models?format=HB
-
-### PLEASE CITE IF YOU USE THIS CODE.
-
-#####################################################################
-#####################################################################
-
+###
+### PLEASE SEE THE README.MD TO KNOW HOW TO CITE.
+###
+##################################################################################################
+##################################################################################################
+###
 ### SETTING:
 ### We assume that we deal with discrete measures accumulated at points x1, x2, ..., xN 
 ### with masses m1, m2, ..., mN at these points
 ### Usually in this code we use R (or R1 or R2) to denote vector of points R = [x1, x2, ..., xN]
 ### and C (or C1 or C2) to denote vector of masses C = [m1, m2, ..., mN]
-
+###
 ### SOME PACKAGES:
-
+###
 import numpy as np
 from math import isclose
 from math import inf
 
-#####################################################################
-### AUXILLARY DIFFERENCE FUNCTION ###################################
-#####################################################################
-
+##################################################################################################
+################################ AUXILLARY DIFFERENCE FUNCTION ###################################
+##################################################################################################
+###
 ### This function writes difference of two discrete measures as one measures
 ### Measures do not need to have the same support
 ### Arguments:
 ### R1, R2 - vectors of positions where the mass is accumulated
 ### C1, C2 - vectors containing values of masses 
-
+###
+##################################################################################################
 
 def diff(R1,R2,C1,C2):
     i = 0
@@ -98,10 +98,10 @@ def diff(R1,R2,C1,C2):
                                 koniec_2 = 1
     return supp,diff
 
-#####################################################################
-### WASSERSTEIN DISTANCE ############################################
-#####################################################################
-
+##################################################################################################
+##################################### WASSERSTEIN DISTANCE #######################################
+##################################################################################################
+###
 ### This function computes Wasserstein distance of two measures
 ### Measures do not need to have the same support!
 ### Measures are represented with:
@@ -120,21 +120,22 @@ def W1(R1,R2,C1,C2):
     return distance
 
 
-#####################################################################
-### FLAT METRIC #####################################################
-#####################################################################
-
+##################################################################################################
+##################################### FLAT METRIC ################################################
+##################################################################################################
+###
 ### This function computes flat metric of two measures
 ### Measures do not need to have the same support!
 ### Measures are represented with:
 ### R1, R2 - vectors of positions where the mass is accumulated
 ### C1, C2 - vectors containing values of masses
-
+###
 ### Example:
 ### Suppose we compute distance between two measures
 ### -> u concentrated at points 0, 1, 2 with massess 0.3, 0.7, 1.5
 ### -> v concentrated at points 1, 3 with massess 2.1, 0.6
 ### We call flat([0,1,2], [1,3], [0.3,0.7,1.5], [2.1, 0.6])
+##################################################################################################
 
 def flat(R1,R2,C1,C2):
     R, C = diff(R1,R2,C1,C2)    
