@@ -11,11 +11,11 @@
 ### The code was prepared for computations in the following papers:
 ###
 ### Bayesian inference of a non-local proliferation model
-### Z. Szymanska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
+### Z. Szymańska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
 ### arXiv: 2106.05955
 ###
-### Convergence of the EBT method for nonlocal model of cell proliferation with discontinuous interaction kernel
-### P.Gwiazda, B.Miasojedow, J.Skrzeczkowski, Z. Szymanska
+### Convergence of the EBT method for a non-local model of cell proliferation with discontinuous interaction kernel
+### P.Gwiazda, B.Miasojedow, J.Skrzeczkowski, Z. Szymańska
 ### arXiv: 2106.05115
 ###
 ### The theoretical background concerning the theory of measure aspects is explained in the book (Chapter 4.2):
@@ -23,8 +23,6 @@
 ### C. Duell, P. Gwiazda, A. Marciniak-Czochra, J. Skrzeczkowski
 ### to be published in October 2021 by Cambridge University Press
 ### https://www.cambridge.org/pl/academic/subjects/mathematics/differential-and-integral-equations-dynamical-systems-and-co/spaces-measures-and-their-applications-structured-population-models?format=HB
-###
-### PLEASE CITE IF YOU USE THIS CODE.
 ###
 ##################################################################################################
 ##################################################################################################
