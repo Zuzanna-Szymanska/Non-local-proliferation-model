@@ -6,7 +6,7 @@
 ##################################################################################################
 ##################################################################################################
 ###
-### This file contains Python3 code for computing the mean trajectory of the growth curve of diameters
+### This file contains Python (version 3.7.4) code for computing the mean trajectory of the growth curve of diameters
 ### of multicellular spheroids estimated with a non-local proliferation model. The program also finds
 ### a MAP estimator for proliferation rate, kernel size, measurement error, and initial colony radius.
 ###
