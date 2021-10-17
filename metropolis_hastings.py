@@ -14,10 +14,6 @@
 ### Z. Szymańska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
 ### arXiv: 2106.05955
 ###
-### Convergence of the EBT method for a non-local model of cell proliferation with discontinuous interaction kernel
-### P.Gwiazda, B.Miasojedow, J.Skrzeczkowski, Z. Szymańska
-### arXiv: 2106.05115
-###
 ### The theoretical background concerning the theory of measure aspects is explained in the book (Chapter 4.2):
 ### Spaces of Measures and their Applications to Structured Population Models
 ### C. Duell, P. Gwiazda, A. Marciniak-Czochra, J. Skrzeczkowski
