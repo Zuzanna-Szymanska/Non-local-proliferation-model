@@ -1,7 +1,7 @@
 ##################################################################################################
 ##################################################################################################
 ###
-### Auxiliary code for solving a non-local proliferation model.
+### Auxiliary Python (version 3.7.4) code for solving a non-local proliferation model.
 ### It is intended to generate the data needed to compare the mean trajectory obtained with the
 ### Metropolis-Hastings algorithm with the solution obtained with the MAP estimator.
 ###
