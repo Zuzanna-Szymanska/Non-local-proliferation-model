@@ -16,6 +16,8 @@
 ### Figures are made based on simulation done using the code from file metropolis–hastings.py 
 ### and postrpocessing file postprocessing.py.
 ###
+### PLEASE SEE THE README.md TO KNOW HOW TO CITE.
+###
 ##################################################################################################
 ##################################################################################################
 
