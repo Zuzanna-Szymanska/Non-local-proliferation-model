@@ -13,12 +13,11 @@
 ### The code was prepared for computations in the paper:
 ###
 ### Bayesian inference of a non-local proliferation model
-### Z. Szymanska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
+### Z. Szymańska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
 ### arXiv: 2106.05955
 ###
 ##################################################################################################
 ##################################################################################################
-
 
 import numpy as np
 import os.path
