@@ -21,6 +21,8 @@
 ### to be published in October 2021 by Cambridge University Press
 ### https://www.cambridge.org/pl/academic/subjects/mathematics/differential-and-integral-equations-dynamical-systems-and-co/spaces-measures-and-their-applications-structured-population-models?format=HB
 ###
+### PLEASE SEE THE README.md TO KNOW HOW TO CITE.
+###
 ##################################################################################################
 ##################################################################################################
 
