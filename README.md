@@ -8,13 +8,14 @@ This folder contains files with codes for computations in the following papers:
 [2] P. Gwiazda, B. Miasojedow, J. Skrzeczkowski, Z. Szymańska, "Convergence of the EBT method for a non-local model of cell proliferation with discontinuous interaction kernel", arXiv:2106.05115
 
 Please cite exactly if you use this code:
-@software{zuzanna_szymanska_2021_5565314,
-  author       = {Zuzanna Szymańska and Jakub Skrzeczkowski and Błażej Miasojedow and Piotr Gwiazda},
-  title        = {Non-local proliferation model},
-  year         = 2021,
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.5565314},
-  url          = {https://doi.org/10.5281/zenodo.5565314}
+
+@software{zuzanna_szymanska_2021_5565314,  
+  author       = {Zuzanna Szymańska and Jakub Skrzeczkowski and Błażej Miasojedow and Piotr Gwiazda},  
+  title        = {Non-local proliferation model},  
+  year         = 2021,  
+  publisher    = {Zenodo},  
+  doi          = {10.5281/zenodo.5565314},  
+  url          = {https://doi.org/10.5281/zenodo.5565314} 
 }
 
 ###########################################################################
