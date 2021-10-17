@@ -14,11 +14,7 @@
 ### Z. Szymańska, J.Skrzeczkowski, B.Miasojedow, P.Gwiazda
 ### arXiv: 2106.05955
 ###
-### The theoretical background concerning the theory of measure aspects is explained in the book (Chapter 4.2):
-### Spaces of Measures and their Applications to Structured Population Models
-### C. Duell, P. Gwiazda, A. Marciniak-Czochra, J. Skrzeczkowski
-### to be published in October 2021 by Cambridge University Press
-### https://www.cambridge.org/pl/academic/subjects/mathematics/differential-and-integral-equations-dynamical-systems-and-co/spaces-measures-and-their-applications-structured-population-models?format=HB
+### PLEASE SEE THE README.md TO KNOW HOW TO CITE.
 ###
 ##################################################################################################
 ##################################################################################################
