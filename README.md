@@ -3,9 +3,9 @@
 
 This folder contains files with codes for computations in the following papers:
 
-[1] Z. Szymańska, J. Skrzeczkowski, B. Miasojedow, P. Gwiazda, "Bayesian inference of a non-local proliferation model", accepted in the Royal Society Open Science, preprint available on arXiv: 2106.05955
+[1] Z. Szymańska, J. Skrzeczkowski, B. Miasojedow, P. Gwiazda, "Bayesian inference of a non-local proliferation model", Royal Society Open Science, 8(11): 211279, 2021, https://doi.org/10.1098/rsos.211279
 
-[2] P. Gwiazda, B. Miasojedow, J. Skrzeczkowski, Z. Szymańska, "Convergence of the EBT method for a non-local model of cell proliferation with discontinuous interaction kernel", preprint available on arXiv:2106.05115
+[2] P. Gwiazda, B. Miasojedow, J. Skrzeczkowski, Z. Szymańska, "Convergence of the EBT method for a non-local model of cell proliferation with discontinuous interaction kernel", IMA Journal of Numerical Analysis, 1-37, 2022, https://doi.org/10.1093/imanum/drab102
 
 Please cite exactly if you use this code:
 
